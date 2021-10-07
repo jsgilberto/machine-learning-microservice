@@ -1,6 +1,14 @@
 [![jsgilberto](https://circleci.com/gh/jsgilberto/machine-learning-microservice.svg?style=svg)](https://github.com/jsgilberto/machine-learning-microservice)
 
 # Machine Learning Microservice w/ Kubernetes
+
+## Description
+
+A Machine Learning Microservice with a model that has been trained to
+predict housing prices in Boston according to several features.
+
+The model is served through an endpoint in a Flask app.
+
 ## Setup the Environment
 
 * Create a virtualenv and activate it
