@@ -1,3 +1,5 @@
+[![jsgilberto](https://circleci.com/gh/jsgilberto/machine-learning-microservice.svg?style=svg)](https://github.com/jsgilberto/machine-learning-microservice)
+
 # Machine Learning Microservice w/ Kubernetes
 ## Setup the Environment
 
