@@ -1,7 +1,39 @@
+(.devops) ubuntu@DESKTOP-5JP4P0M:~/repos/ml-microservice$ ./run_kubernetes.sh
 deployment.apps/ml-microservice created
-Pod name: pod/ml-microservice-5f48878c99-f46dx
-pod/ml-microservice-5f48878c99-f46dx condition met
+Pod name: pod/ml-microservice-5f48878c99-9jtnz
+pod/ml-microservice-5f48878c99-9jtnz condition met
 Forwarding from 127.0.0.1:8000 -> 80
 Forwarding from [::1]:8000 -> 80
 Handling connection for 8000
-Handling connection for 8000
+^C(.devops) ubuntu@DESKTOP-5JP4P0M:~/repos/ml-microservice$ kubectl logs pod/ml-microservice-5f48878c99-9jtnz
+ * Serving Flask app "app" (lazy loading)
+ * Environment: production
+   WARNING: Do not use the development server in a production environment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://0.0.0.0:80/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 125-625-577
+[2021-10-07 15:57:56,896] INFO in app: JSON payload:
+{'CHAS': {'0': 0}, 'RM': {'0': 6.575}, 'TAX': {'0': 296.0}, 'PTRATIO': {'0': 15.3}, 'B': {'0': 396.9}, 'LSTAT': {'0': 4.98}}
+[2021-10-07 15:57:56,910] INFO in app: Inference payload DataFrame:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-10-07 15:57:56,918] INFO in app: Scaling Payload:
+   CHAS     RM    TAX  PTRATIO      B  LSTAT
+0     0  6.575  296.0     15.3  396.9   4.98
+[2021-10-07 15:57:56,921] INFO in app: Prediction: [20.35373177134412]
+127.0.0.1 - - [07/Oct/2021 15:57:56] "POST /predict HTTP/1.1" 200 -
+
+
+
+-------------------------------------
+On another terminal:
+ubuntu@DESKTOP-5JP4P0M:~/repos/ml-microservice$ ./make_prediction.sh
+Port: 8000
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
